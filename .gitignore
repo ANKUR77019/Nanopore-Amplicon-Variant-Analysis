@@ -1,1 +1,41 @@
+# Raw sequencing data
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
 
+# Alignment files
+*.sam
+*.bam
+*.bai
+*.cram
+*.crai
+
+# Reference genome and indexes
+*.fna
+*.fasta
+*.fa
+*.fai
+*.mmi
+
+# Variant/database files
+*.bcf
+*.bcf.csi
+*.vcf
+*.vcf.gz
+*.vcf.gz.tbi
+
+# Temporary and intermediate files
+*.tmp
+*.log
+*.out
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# OS files
+.DS_Store
+Thumbs.db
