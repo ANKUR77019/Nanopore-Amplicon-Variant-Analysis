@@ -63,7 +63,6 @@ A standardized 10,000-read subset was used for the initial workflow development 
 | Tool | Purpose |
 |---|---|
 | FastQC | General sequencing quality assessment |
-| NanoQC | Nanopore-specific quality assessment |
 | NanoPlot | Nanopore read length and quality assessment |
 | SeqKit | FASTQ statistics and read subsampling |
 | minimap2 | Alignment of Nanopore reads to GRCh38 |
@@ -76,7 +75,7 @@ A standardized 10,000-read subset was used for the initial workflow development 
 
 ## Quality Control
 
-Quality assessment was performed using FastQC and NanoPlot, with NanoQC included as part of the Nanopore-specific QC workflow.
+Quality assessment was performed using FastQC and NanoPlot. NanoQC was considered as part of the Nanopore QC workflow but its results are not included in the current analysis.
 
 The purpose of QC was to assess read quality, read length distribution, sequencing characteristics, and potential technical issues before downstream analysis.
 
