@@ -15,6 +15,9 @@ The analysis starts from raw Nanopore FASTQ reads and proceeds through:
 The workflow was performed using command-line bioinformatics tools in a Linux/Ubuntu environment.
 
 ---
+## Workflow
+
+![Nanopore Variant Analysis Workflow](docs/workflow.png)
 
 ## Objectives
 
