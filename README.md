@@ -64,37 +64,37 @@ FastQC was used to generate a report containing per-base quality, per-sequence q
 
 **Per-base sequence quality**
 
-![FastQC per-base sequence quality](images/per_base_quality.png)
+![FastQC per-base sequence quality](docs/images/per_base_quality.png)
 
 This plot displays the distribution of base-call quality scores across read positions. Variation across positions can help identify portions of reads with lower confidence. The overall assessment should be considered alongside read length and per-sequence quality.
 
 **Per-sequence quality scores**
 
-![FastQC per-sequence quality](images/per_sequence_quality.png)
+![FastQC per-sequence quality](docs/images/per_sequence_quality.png)
 
 This plot summarizes the quality-score distribution across reads. It complements the per-base plot by showing whether reads as a whole tend to have high or low average quality.
 
 **Per-base sequence composition**
 
-![FastQC per-base sequence content](images/per_base_sequence_content.png)
+![FastQC per-base sequence content](docs/images/per_base_sequence_content.png)
 
 This plot assesses the distribution of A, C, G, and T across read positions. Sequence-composition patterns can reflect the biology of the library, targeted amplification, or technical effects; an unusual pattern should be interpreted in the context of the experiment rather than automatically treated as contamination.
 
 **Sequence-length distribution**
 
-![FastQC sequence length distribution](images/sequence_length_distribution.png)
+![FastQC sequence length distribution](docs/images/sequence_length_distribution.png)
 
 Read length is particularly relevant for Nanopore data because reads can vary substantially in length. The distribution provides context for subsequent alignment and coverage analysis.
 
 **GC-content distribution**
 
-![FastQC GC-content distribution](images/per_sequence_gc_content.png)
+![FastQC GC-content distribution](docs/images/per_sequence_gc_content.png)
 
 GC content provides another descriptive measure of the input sequence composition. It can help identify unusual distributions, although its interpretation depends on the expected composition of the target sequences.
 
 **Adapter-content assessment**
 
-![FastQC adapter content](images/adapter_content.png)
+![FastQC adapter content](docs/images/adapter_content.png)
 
 The adapter-content module assesses whether sequences resembling known adapters occur in the reads. This report was inspected as part of quality assessment; no separate adapter- or quality-trimming step was performed in the documented workflow.
 
@@ -102,19 +102,19 @@ The adapter-content module assesses whether sequences resembling known adapters 
 
 **Read length versus quality**
 
-![NanoPlot read length versus quality](images/LengthvsQualityScatterPlot_dot.png)
+![NanoPlot read length versus quality](docs/images/LengthvsQualityScatterPlot_dot.png)
 
 The scatter plot visualizes the relationship between read length and read quality. It allows the distribution of read lengths and quality scores to be examined together rather than treating them as independent characteristics.
 
 **Read-length distribution**
 
-![NanoPlot read-length distribution](images/Non_weightedHistogramReadlength.png)
+![NanoPlot read-length distribution](docs/images/Non_weightedHistogramReadlength.png)
 
 This histogram summarizes the number of reads across read-length ranges. It provides a complementary view of the read-length distribution reported by FastQC.
 
 **Yield by read length**
 
-![NanoPlot yield by read length](images/Yield_By_Length.png)
+![NanoPlot yield by read length](docs/images/Yield_By_Length.png)
 
 This plot shows how sequence yield is distributed across read lengths, helping distinguish the contribution of read counts from the contribution of total sequenced bases.
 
@@ -144,7 +144,7 @@ Alignment against a whole human reference genome can be computationally demandin
 
 SeqKit was used to sample 10,000 reads using a fixed random seed.
 
-![SeqKit subsampling evidence](images/seqkit_original_and_subsampled_read_counts.png)
+![SeqKit subsampling evidence](docs/images/seqkit_original_and_subsampled_read_counts.png)
 
 The recorded subset statistics were:
 
@@ -173,7 +173,7 @@ The NCBI GRCh38.p14 human reference assembly was used for reference-guided align
 
 The reference was downloaded, decompressed, and indexed using SAMtools. The FASTA index enables efficient retrieval of reference sequences and supports downstream operations that require indexed reference access.
 
-![Reference genome preparation evidence](images/grch38_reference_download_terminal.png)
+![Reference genome preparation evidence](docs/images/grch38_reference_download_terminal.png)
 
 The whole-reference minimap2 index initially exceeded the available memory when attempted as a single index. A memory-conscious split-index alignment strategy was subsequently used instead. This was an environment-related adjustment; it did not change the selected reference assembly.
 
@@ -208,7 +208,7 @@ The recorded `samtools flagstat` output contained:
 | Secondary alignment records | 13,774 |
 | Supplementary alignment records | 29,943 |
 
-![Alignment summary](images/alignment_summary.png)
+![Alignment summary](docs/images/alignment_summary.png)
 
 The primary mapping rate was calculated as:
 
@@ -260,7 +260,7 @@ The revised filter used:
 
 This retained **92 candidate records**.
 
-![Variant filtering comparison](images/variant_filter_comparison.png)
+![Variant filtering comparison](docs/images/variant_filter_comparison.png)
 
 | Filtering stage | DP threshold | QUAL threshold | Alternate allele fraction | Candidates retained |
 |---|---:|---:|---:|---:|
@@ -292,7 +292,7 @@ The revised VCF was prepared with chromosome names compatible with the downloade
 
 Three candidate records received a `CLNSIG` annotation in the revised candidate set.
 
-![ClinVar annotation terminal output](images/clinvar_three_annotated_candidates_terminal.png)
+![ClinVar annotation terminal output](docs/images/clinvar_three_annotated_candidates_terminal.png)
 
 | Chromosome | Position | Change | Gene | ClinVar significance | Review status |
 |---|---:|---|---|---|---|
@@ -300,7 +300,7 @@ Three candidate records received a `CLNSIG` annotation in the revised candidate 
 | 3 | 41,224,622 | C>G | CTNNB1 | Pathogenic/Likely pathogenic | No assertion criteria provided |
 | 17 | 7,673,802 | C>T | TP53 | Pathogenic | Reviewed by expert panel |
 
-![ClinVar annotation summary](images/clinvar_matches_summary.png)
+![ClinVar annotation summary](docs/images/clinvar_matches_summary.png)
 
 These labels describe the corresponding ClinVar annotations. They do not establish that the candidate calls are clinically confirmed in this sample.
 
