@@ -42,7 +42,7 @@ The downstream analysis used a reproducibly sampled subset of 10,000 reads. This
 
 ## Workflow
 
-![Nanopore analysis workflow](workflow.png)
+![Nanopore analysis workflow](docs/workflow.png)
 
 The analysis proceeded through five main stages:
 
